@@ -4,14 +4,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	let ctx = canvas.getContext("2d");
 	
+		//Голова и шея
+	ctx.fillStyle = "Red"; //Назначение цвета
 	ctx.fillRect(50,0,50,50);    
 	ctx.fillRect(70,50,10,20); 
 
+		//Руки
+	ctx.fillStyle = "Blue";
 	ctx.fillRect(0,70,40,10);    
 	ctx.fillRect(110,70,40,10);    
-	
+		
+		//Туловище
+	ctx.fillStyle = "Green";
 	ctx.fillRect(40,70,70,70);
 
+		//Ноги
+	ctx.fillStyle = "Black";
 	ctx.fillRect(40,140,10,50);    
 	ctx.fillRect(100,140,10,50);    
 
