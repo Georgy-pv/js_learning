@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function(){
 	let canvas = document.getElementById('canvas');
 
 	let ctx = canvas.getContext("2d");
-	ctx.fillRect(0, 0, 200, 200);
+	
+	for(var i = 0; i < 8; i++){
+		ctx.fillRect(i*10, i*10, 10, 10);
+	}
     
 
 });
