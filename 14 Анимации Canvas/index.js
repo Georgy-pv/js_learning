@@ -98,8 +98,17 @@ $('document').ready(function () {
 	function Ball() {
 		this.x = 100;
 		this.y = 100;
-		this.xSpeed = -2;
-		this.ySpeed = 3;
+		this.xSpeed = Math.random() * 10 - 5;
+		this.ySpeed = Math.random() * 10 - 5;
+		this.color = pickRandomColor(color);
+	}
+
+		//случайный цвет
+	let color = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Yellowgreen", "Black", "Gold"];
+
+	function pickRandomColor(colors) {
+		return colors[Math.floor(Math.random() * colors.length)];
+
 	}
 
 	let circle = function(x, y, radius, fillCircle) {
@@ -112,8 +121,9 @@ $('document').ready(function () {
 		}
 	};
 
-		//Добавление метода отрисовки к конструктору Ball
+		//Добавление метода отрисовки к конструктору Ball + назначение цвета
 	Ball.prototype.draw = function () {
+		ctx.fillStyle = this.color;
 		circle(this.x, this.y, 5, true);
 	}
 
@@ -133,6 +143,7 @@ $('document').ready(function () {
 		}
 	}
 
+
 		//Анимация мяча
 
 	let canvas = document.getElementById('canvas'),
@@ -140,15 +151,24 @@ $('document').ready(function () {
 
 	let ball = new Ball();
 
+	let arrBalls = ['/dsds', 'dsds'];
+
+	for(var i = 0; i < 10; i++){
+		arrBalls[i] = new Ball();
+	}
+	// console.log(arrBalls);
 	setInterval (function() {
 		ctx.clearRect(0, 0, 200, 200);
 
-		ball.draw(); //отрисовка
-		ball.move(); // обновление координат
-		ball.checkCollision(); //проверка на выход за холст и смена направления
+		for(var j = 0; j < 10; j++){
+			// console.log(arrBalls[j]);
+			arrBalls[j].draw(); //отрисовка
+			arrBalls[j].move(); // обновление координат
+			arrBalls[j].checkCollision()
+		}
 
 		ctx.strokeRect(0, 0, 200, 200);
 	}, 30)
 		
-
+// console.log(arrBalls[0]);
 });
